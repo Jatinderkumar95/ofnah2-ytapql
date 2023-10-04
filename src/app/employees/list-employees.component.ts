@@ -14,6 +14,7 @@ export class ListEmployeesComponent implements OnInit {
     new Employee(3, 'Bin', 'Male', 'phone', new Date('11/20/1999'), 'IT', true, undefined, 45645645, 'assets/images/bin.jpeg')
   ]
   employees: Employee[]
+  currentEmployeeName! : string;
   constructor() {
     this.employees = this.employeesOrignal.filter(a => a.id == this.id);
   }
@@ -28,4 +29,7 @@ export class ListEmployeesComponent implements OnInit {
     console.log(this.employees[0]);
   }
 
+  handleNotification(eventPayload : string){
+this.currentEmployeeName = eventPayload;
+  }
 }

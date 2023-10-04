@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, Output, SimpleChanges,EventEmitter } from '@angular/core';
 import { Employee } from '../models/employee.model';
+
 
 @Component({
   selector: 'app-display-employee',
@@ -16,5 +17,18 @@ export class DisplayEmployeeComponent implements OnChanges {
     return this._employee;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  @Output() notify : EventEmitter<string> = new EventEmitter<string>();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    for(const propName of Object.keys(changes)){
+      const change = changes[propName];
+      const previousValue = change.previousValue;
+      const currentValue = change.currentValue;
+    }
+  }
+
+  handleClick() : void
+  {
+    this.notify.emit(this.employee.name);
+  }
 }
