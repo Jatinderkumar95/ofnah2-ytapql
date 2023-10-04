@@ -21,5 +21,7 @@ export class Employee {
     this.phoneNumber = phoneNumber;
     this.photoPath = photoPath;
 
+    // this.name = null;
+
   }
 }

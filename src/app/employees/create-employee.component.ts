@@ -1,4 +1,5 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
+import { Employee } from '../models/employee.model';
 
 @Component({
   selector: 'app-create-employee',
@@ -7,4 +8,8 @@ import { Component,OnInit } from '@angular/core';
 })
 export class CreateEmployeeComponent {
 
+
+
+ constructor(){
+ }
 }
