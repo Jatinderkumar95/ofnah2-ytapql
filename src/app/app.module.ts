@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ListEmployeesComponent } from './employees/list-employees.component';
+import { CreateEmployeeComponent } from './employees/create-employee.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { ListEmployeesComponent } from './employees/list-employees.component';
     AppComponent,
     TopBarComponent,
     ProductListComponent,
-    ListEmployeesComponent
+    ListEmployeesComponent,
+    CreateEmployeeComponent
   ],
   bootstrap: [
     AppComponent
