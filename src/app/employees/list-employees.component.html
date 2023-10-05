@@ -1,7 +1,7 @@
 <button (click)="nextEmployee()" class="btn btn-primary">View Next Employee</button>
-<h3 *ngIf="currentEmployeeName">Current Name : {{currentEmployeeName}}</h3>
+<h3 *ngIf="currentEmployeeName">Current Name : {{currentEmployeeName | testPipe}}</h3>
 <br/>
 <br/>
-<div  *ngFor="let employee of employees">
+<div  *ngFor="let employee of employees | slice:0:1">
   <app-display-employee [employee]="employee" (notify)="handleNotification($event)"></app-display-employee>
 </div>

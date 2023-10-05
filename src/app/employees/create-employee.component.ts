@@ -7,9 +7,9 @@ import { Employee } from '../models/employee.model';
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent {
+title : string = "Create - Employee"
 
-
-
+Fahrenhait! : number;
  constructor(){
  }
 }

@@ -1,0 +1,18 @@
+<div class="panel  panel-default">
+  <div class="panel-heading">
+    <div class="panel-title">
+      <h3>{{title}}</h3>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="panel">
+      <div class="row">
+        <p>Fahrenhait to Celsius</p>
+      </div>
+      <div class="row">
+        <p> Fahrenhait:<input type="text" [(ngModel)]="Fahrenhait"/></p>
+        <p>Celsius: {{Fahrenhait | TempConvertor:'C'}}</p>
+      </div>
+    </div>
+  </div>
+</div>

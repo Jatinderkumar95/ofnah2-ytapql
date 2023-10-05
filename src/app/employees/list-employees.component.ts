@@ -8,9 +8,10 @@ import { Employee } from '../models/employee.model';
 })
 export class ListEmployeesComponent implements OnInit {
   private id: number = 1;
+  // private nu :number = Number.NaN;
   employeesOrignal: Employee[] = [
     new Employee(1, 'Mary', 'Female', 'email', new Date('11/20/1994'), 'HR', true, 'mary@gmail.com', undefined, 'assets/images/mary.jpeg'),
-    new Employee(2, 'John', 'Male', 'phone', new Date('11/20/1997'), 'IT', true, undefined, 1231231231, 'assets/images/john.jpeg'),
+    new Employee(2, 'John', 'Male', 'phone', new Date('11/20/1997'), 'IT', true, undefined, 0.034579987, 'assets/images/john.jpeg'),
     new Employee(3, 'Bin', 'Male', 'phone', new Date('11/20/1999'), 'IT', true, undefined, 45645645, 'assets/images/bin.jpeg')
   ]
   employees: Employee[]
