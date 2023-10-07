@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, Output, SimpleChanges,EventEmitter } from '@angular/core';
 import { Employee } from '../models/employee.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { Employee } from '../models/employee.model';
 })
 export class DisplayEmployeeComponent implements OnChanges {
   private _employee!: Employee;
+
+  private router! : Router;
   @Input()
   set employee(val: Employee) {
     this._employee = val;
@@ -18,6 +21,10 @@ export class DisplayEmployeeComponent implements OnChanges {
   }
 
   @Output() notify : EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(router:Router){
+this.router = router;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     for(const propName of Object.keys(changes)){
@@ -30,5 +37,6 @@ export class DisplayEmployeeComponent implements OnChanges {
   handleClick() : void
   {
     this.notify.emit(this.employee.name);
+    this.router.navigate(['update']);
   }
 }

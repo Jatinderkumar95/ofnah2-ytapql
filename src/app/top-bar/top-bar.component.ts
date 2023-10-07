@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,6 +8,15 @@ import { Component } from '@angular/core';
 })
 export class TopBarComponent {
 
+  private router : Router;
+  constructor(router:Router){
+this.router = router;
+  }
+  hanldeListButton(){
+    console.log('abc');
+    this.router
+    .navigate(['/list']);
+  }
 }
 
 

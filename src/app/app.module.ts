@@ -11,15 +11,21 @@ import { CreateEmployeeComponent } from './employees/create-employee.component';
 import { DisplayEmployeeComponent } from './employees/display-employee.component';
 import { TestPipe } from './pipes/test.pipe';
 import { TempConvertorPipe } from './pipes/temp-convertor.pipe';
+import { FilterArrayPipe } from './pipes/filter-array.pipe';
+import { UpdateEmployeeComponent } from './employees/update-employee.component';
+import { ErrorComponent } from './error/error.component';
+import { routes } from './app-routes';
+import { StakeholderDashboardRoutingModule } from './stakeholder-dashboard/stakeholder-dashboard-routing.module';
+import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-    ]),
-    FormsModule
+    RouterModule.forRoot(routes),
+    FormsModule,
+    AdminDashboardModule,
+    StakeholderDashboardRoutingModule
   ],
   declarations: [
     AppComponent,
@@ -29,7 +35,10 @@ import { TempConvertorPipe } from './pipes/temp-convertor.pipe';
     CreateEmployeeComponent,
     DisplayEmployeeComponent,
     TestPipe,
-    TempConvertorPipe
+    TempConvertorPipe,
+    FilterArrayPipe,
+    UpdateEmployeeComponent,
+    ErrorComponent
   ],
   bootstrap: [
     AppComponent

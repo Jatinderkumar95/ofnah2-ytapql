@@ -1,7 +1,11 @@
-<button (click)="nextEmployee()" class="btn btn-primary">View Next Employee</button>
-<h3 *ngIf="currentEmployeeName">Current Name : {{currentEmployeeName | testPipe}}</h3>
+<!-- <button (click)="nextEmployee()" class="btn btn-primary">View Next Employee</button>
+<h3 *ngIf="currentEmployeeName">Current Name : {{currentEmployeeName | testPipe}}</h3> -->
+<input type="text" [(ngModel)]="searchBy" placeholder="Enter name">
+<button type="button" (click)="ChangeProperty()">Change By Property</button>
+<button type="button" (click)="ChangeReference()">Change By Reference</button>
 <br/>
 <br/>
-<div  *ngFor="let employee of employees | slice:0:1">
+<div  *ngFor="let employee of employees | filter:searchBy"> 
+  <!-- | slice:0:1 -->
   <app-display-employee [employee]="employee" (notify)="handleNotification($event)"></app-display-employee>
 </div>

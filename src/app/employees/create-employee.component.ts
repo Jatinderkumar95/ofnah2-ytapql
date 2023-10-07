@@ -10,6 +10,8 @@ export class CreateEmployeeComponent {
 title : string = "Create - Employee"
 
 Fahrenhait! : number;
+inputText!:string;
+
  constructor(){
  }
 }
