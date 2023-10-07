@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(httpClient: HttpClient)
+  {
+  // httpClient.get<any>('https://dummyjson.com/products').subscribe((val) => console.log(val));
+  }
 }

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -16,16 +17,18 @@ import { UpdateEmployeeComponent } from './employees/update-employee.component';
 import { ErrorComponent } from './error/error.component';
 import { routes } from './app-routes';
 import { StakeholderDashboardRoutingModule } from './stakeholder-dashboard/stakeholder-dashboard-routing.module';
-import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
+import { HttpService } from './services/http.service';
+import { CustomPreloading } from './preLoading-Stretagy';
 
 @NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes,{preloadingStrategy: CustomPreloading}),
+    // PreloadAllModules
     FormsModule,
-    AdminDashboardModule,
-    StakeholderDashboardRoutingModule
+    StakeholderDashboardRoutingModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
@@ -39,6 +42,10 @@ import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
     FilterArrayPipe,
     UpdateEmployeeComponent,
     ErrorComponent
+  ],
+  providers:[
+    HttpService,
+    CustomPreloading
   ],
   bootstrap: [
     AppComponent
