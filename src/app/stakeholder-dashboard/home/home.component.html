@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div *ngFor="let product of products">
+  <div class="panel panel-default" style="width:18rem">
+    <div class="panel-heading">
+      <div class="panel-title">
+        {{product.title}}
+      </div>
+    </div>
+  </div>
+</div>

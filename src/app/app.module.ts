@@ -16,9 +16,9 @@ import { FilterArrayPipe } from './pipes/filter-array.pipe';
 import { UpdateEmployeeComponent } from './employees/update-employee.component';
 import { ErrorComponent } from './error/error.component';
 import { routes } from './app-routes';
-import { StakeholderDashboardRoutingModule } from './stakeholder-dashboard/stakeholder-dashboard-routing.module';
 import { HttpService } from './services/http.service';
 import { CustomPreloading } from './preLoading-Stretagy';
+import { StakeholderDashboardModule } from './stakeholder-dashboard/stakeholder-dashboard.module';
 
 @NgModule({
   imports: [
@@ -27,7 +27,7 @@ import { CustomPreloading } from './preLoading-Stretagy';
     RouterModule.forRoot(routes,{preloadingStrategy: CustomPreloading}),
     // PreloadAllModules
     FormsModule,
-    StakeholderDashboardRoutingModule,
+    StakeholderDashboardModule,
     HttpClientModule
   ],
   declarations: [

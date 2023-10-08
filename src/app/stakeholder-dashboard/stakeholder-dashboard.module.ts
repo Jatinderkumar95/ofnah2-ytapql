@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponentComponent } from './home/home-component.component';
 import { HomeComponent } from './home/home.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StakeholderDashboardRoutingModule } from './stakeholder-dashboard-routing.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponentComponent,
     HomeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    StakeholderDashboardRoutingModule
+  ],
+  exports:[
+    HomeComponent
   ]
 })
 export class StakeholderDashboardModule { }
