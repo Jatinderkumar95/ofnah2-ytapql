@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { timer } from 'rxjs';
+import { from,  fromEvent,  mergeMap,  timer } from 'rxjs';
+import {mergeAll,map, flatMap, exhaustMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,41 @@ export class HomeComponent {
     //   });
     // }
 
+    // from(productIds).pipe(map((value, index) => {
+    //   return httpClient.get<any>(`https://dummyjson.com/products/${value}`);
+    // })).subscribe((val) => {
+    //  val.subscribe(res => this.products.push(res));
+    // });
+
+    // from(productIds).pipe(map((value, index) => {
+    //   return httpClient.get<any>(`https://dummyjson.com/products/${value}`);
+    // }),mergeAll()).subscribe((val) => {
+    //   this.products.push(val);
+    // });
+
+    // from(productIds).pipe(mergeMap((value, index) => {
+    //   return httpClient.get<any>(`https://dummyjson.com/products/${value}`);
+    // })).subscribe((val) => {
+    //   this.products.push(val);
+    // });
+
+    // from(productIds).pipe(flatMap((value, index) => {
+    //   return httpClient.get<any>(`https://dummyjson.com/products/${value}`);
+    // })).subscribe((val) => {
+    //   this.products.push(val);
+    // });
+
+    // from(productIds).pipe(exhaustMap((value, index) => {
+    //   return httpClient.get<any>(`https://dummyjson.com/products/${value}`);
+    // })).subscribe((val) => {
+    //   this.products.push(val);
+    // });
+
+    // fromEvent(document,'click').subscribe(
+    //   (val : Event) => {
+    //     this.products.push(val.type);
+    //   }
+    // )
 
   // httpClient.get<any>('https://dummyjson.com/products').subscribe((val) => console.log(val));
   }
