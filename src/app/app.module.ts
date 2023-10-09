@@ -19,6 +19,8 @@ import { routes } from './app-routes';
 import { HttpService } from './services/http.service';
 import { CustomPreloading } from './preLoading-Stretagy';
 import { StakeholderDashboardModule } from './stakeholder-dashboard/stakeholder-dashboard.module';
+import { AuthGuardService } from './services/auth-guard.service';
+import { LocalStorageService } from './services/local-storage.service';
 
 @NgModule({
   imports: [
@@ -45,7 +47,9 @@ import { StakeholderDashboardModule } from './stakeholder-dashboard/stakeholder-
   ],
   providers:[
     HttpService,
-    CustomPreloading
+    CustomPreloading,
+    AuthGuardService,
+    LocalStorageService
   ],
   bootstrap: [
     AppComponent
