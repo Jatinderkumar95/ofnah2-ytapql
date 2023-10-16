@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../models/employee.model';
+import { BehaviorSubject, Observable, fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-list-employees',
@@ -9,6 +10,8 @@ import { Employee } from '../models/employee.model';
 export class ListEmployeesComponent implements OnInit {
   private id: number = 1;
   searchBy! : string;
+  searchBy$ : BehaviorSubject<string> = new BehaviorSubject<string>('');
+
   // private nu :number = Number.NaN;
   employeesOrignal: Employee[] = [
     new Employee(1, 'Mary', 'Female', 'email', new Date('11/20/1994'), 'HR', true, 'mary@gmail.com', undefined, 'assets/images/mary.jpeg'),
@@ -19,6 +22,10 @@ export class ListEmployeesComponent implements OnInit {
   currentEmployeeName!: string;
   constructor() {
     this.employees = Object.assign([],this.employeesOrignal);
+    this.searchBy$.asObservable().subscribe(data=>console.log(data),errors => console.log(errors));
+    
+    fromEvent(document,'')
+
     // this.employees = [...this.employeesOrignal];
     // this.employees = this.employeesOrignal.slice();
     //.filter(a => a.id == this.id);
@@ -37,13 +44,22 @@ export class ListEmployeesComponent implements OnInit {
     this.currentEmployeeName = eventPayload;
   }
 
-  ChangeProperty(){
-this.employees[0].name="test";
-this.employees =this.employees.concat([new Employee(10,'majha','Female','email',new Date('10/09/2000'),'HR',true)]);
-console.log(this.employees);
+  modelChange(event : any){
+
   }
 
-  ChangeReference(){
-this.id = 1;
-  }
+  
+  
+
+//   ChangeProperty(){
+// this.employees[0].name="test";
+// this.employees =this.employees.concat([new Employee(10,'majha','Female','email',new Date('10/09/2000'),'HR',true)]);
+// console.log(this.employees);
+//   }
+
+//   ChangeReference(){
+// this.id = 1;
+//   }
+
+
 }

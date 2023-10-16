@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Employee } from '../models/employee.model';
 import { HttpService } from '../services/http.service';
+import { FormGroup, NgForm } from '@angular/forms';
+import { Contact } from '../models/contact.model';
 
 @Component({
   selector: 'app-create-employee',
@@ -13,6 +15,11 @@ export class CreateEmployeeComponent {
   Fahrenhait!: number;
   inputText!: string;
 
+  countryList : string[] = ['abc','vbn','bnm'];
+  contact! : Contact;
+
+  @ViewChild('formRef',{}) contactForm! : NgForm;
+
   private httpService: HttpService;
   constructor(httpService: HttpService) {
     this.httpService = httpService;
@@ -20,4 +27,9 @@ export class CreateEmployeeComponent {
   }
 
 
+  onSubmit(formGroup : NgForm){
+console.log(formGroup.value);
+  }
 }
+
+
