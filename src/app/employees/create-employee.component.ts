@@ -9,16 +9,16 @@ import { Contact } from '../models/contact.model';
   templateUrl: './create-employee.component.html',
   styleUrls: ['./create-employee.component.css']
 })
-export class CreateEmployeeComponent {
+export class CreateEmployeeComponent implements OnInit {
   title: string = "Create - Employee"
 
   Fahrenhait!: number;
   inputText!: string;
 
-  countryList : string[] = ['abc','vbn','bnm'];
-  contact! : Contact;
+  countryList: string[] = ['abc', 'vbn', 'bnm'];
+  contact!: Contact;
 
-  @ViewChild('formRef',{}) contactForm! : NgForm;
+  @ViewChild('formRef', {}) contactForm!: NgForm;
 
   private httpService: HttpService;
   constructor(httpService: HttpService) {
@@ -26,9 +26,20 @@ export class CreateEmployeeComponent {
     httpService.get().subscribe(val => console.log(val));
   }
 
+  ngOnInit(): void {
+   
+    // this.contactForm.setValue(this.contact);
 
-  onSubmit(formGroup : NgForm){
-console.log(formGroup.value);
+    //this.contactForm.controls['isMarried'].setValue(this.contact.isMarried);
+  }
+
+
+  onSubmit(formGroup: NgForm) {
+    console.log(formGroup.value);
+  }
+
+  reset(ngform:NgForm){
+    ngform.reset();
   }
 }
 
