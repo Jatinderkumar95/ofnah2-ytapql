@@ -21,6 +21,7 @@ import { CustomPreloading } from './preLoading-Stretagy';
 import { StakeholderDashboardModule } from './stakeholder-dashboard/stakeholder-dashboard.module';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LocalStorageService } from './services/local-storage.service';
+import { ReactiveCreateEmployeeComponent } from './employees/reactive-create-employee.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { LocalStorageService } from './services/local-storage.service';
     TempConvertorPipe,
     FilterArrayPipe,
     UpdateEmployeeComponent,
-    ErrorComponent
+    ErrorComponent,
+    ReactiveCreateEmployeeComponent
   ],
   providers:[
     HttpService,
